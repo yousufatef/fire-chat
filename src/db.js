@@ -1,14 +1,20 @@
-import firebase from "firebase/app";
-import "firebase/database";
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+const config = {
+  apiKey: "AIzaSyCjCz2KrLOVfT7fqPhBDpIY-4n12Ad7lcE",
+  authDomain: "fire-chat-647e9.firebaseapp.com",
+  projectId: "fire-chat-647e9",
+  storageBucket: "fire-chat-647e9.appspot.com",
+  messagingSenderId: "506094471417",
+  appId: "1:506094471417:web:e63e413728dcba026afa28",
+  databaseURL: "https://fire-chat-647e9-default-rtdb.firebaseio.com/", // Ensure this is included
 };
 
-const db = firebase.initializeApp(config);
+// Initialize Firebase
+const app = initializeApp(config);
+
+// Initialize Realtime Database and get a reference to the service
+const db = getDatabase(app);
+
 export default db;
